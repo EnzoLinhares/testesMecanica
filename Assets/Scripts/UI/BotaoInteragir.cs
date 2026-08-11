@@ -6,27 +6,28 @@ public class BotaoInteragir : MonoBehaviour
     public GameObject textoInteragir;
     public string tagAlvo = "Player";
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (CompareTag (tagAlvo))
+
+
+        if (collision.gameObject.CompareTag (tagAlvo))
         {
-            if (textoInteragir != null) { 
+            Debug.Log("Entrou");
+
                 
                 textoInteragir.SetActive (true);
 
-            }
+            
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (CompareTag(tagAlvo))
+        if (collision.gameObject.CompareTag(tagAlvo))
         {
-            if (textoInteragir != null)
-            {
 
                 textoInteragir.SetActive(false);
 
-            }
+            
         }
     }
     void Start()
